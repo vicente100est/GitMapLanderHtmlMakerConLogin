@@ -1,0 +1,36 @@
+<br>
+
+<div class="card mt-5 form-estilo1" *ngIf="user$ | async as user; else loading">
+  <div class="card-body form-estilo">
+    <h3 class="card-title text-center">
+      Thank you for registering!
+    </h3>
+    <div class="form-group">
+      <p class="text-center">
+        We have sent a confirmation email to <strong>{{ user?.email }}</strong>
+      </p>
+      <p class="text-center">
+        Plase check your email and click on the link to verify your email address.
+      </p>
+    </div>
+    <div class="form-group text-center">
+      <button class="btn btn-primary" (click)="onSendEmail()">
+        Resend verification email
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  Loading...
+</ng-template>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

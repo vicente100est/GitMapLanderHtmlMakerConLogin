@@ -1,0 +1,38 @@
+<br>
+
+<div class="row">
+  <div class="col-md-6 mx-auto mt-5">
+    <div class="card form-estilo">
+      <div class="card-body">
+        <h1 class="text-center">
+          LOGIN
+        </h1>
+        <form [formGroup] = "loginForm" (ngSubmit) = "onLogin()">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" formControlName = "email">
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" formControlName = "password">
+          </div>
+
+          <br>
+
+          <center>
+            <button type="submit" class="btn btn-dark btn-lg btn-block">LOGIN</button>
+          </center>
+        </form>
+
+        <div class="form-group mt-3">
+          <p>If you have not an account click <a [routerLink]="['/register']">here</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
