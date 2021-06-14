@@ -14,6 +14,8 @@ import { SendEmailComponent } from './auth/send-email/send-email.component';
 
 import { FooterComponent } from './shared/footer/footer.component';
 
+import { CKEditorComponent } from 'ng2-ckeditor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    CKEditorComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,14 +1,23 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(public afAuth: AngularFireAuth){ }
+  constructor(
+    public afAuth: AngularFireAuth,
+    public ngFireAuth: AngularFireAuth,
+    public router: Router
+  ){ }
 
-  async sendVerificationEmail(): Promise<void>{
-    return (await this.afAuth.currentUser).sendEmailVerification();
+  async sendVerificationEmail() {
+    return this.afAuth.currentUser.then((user) => {
+      return user.sendEmailVerification();
+    }).then(() => {
+      this.router.navigate(['verification-email']);
+    })
   }
 
   async login(email:string, password:string){
@@ -39,5 +48,4 @@ export class AuthService {
       console.log(error);
     }
   }
-
 }
